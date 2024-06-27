@@ -7,9 +7,20 @@ import { Component } from '@angular/core';
 })
 export class TodoComponent {
   session:any;
-  data:any;
+  data: {id: number, task: string}[]=[];
+  newTask: string='';
+
   saveData() {
     localStorage.setItem('session', JSON.stringify(this.data))
+  }
+  addTask() {
+    let newTask = {
+      id: Date.now(),
+      task: this.newTask
+    };
+    this.data.push(newTask)
+    this.saveData();
+    this.newTask=''
   }
 
   loadData() {
@@ -18,7 +29,13 @@ export class TodoComponent {
   }
 
   dataClear() {
-    localStorage.clear();
+    localStorage.removeItem('session');
+    this.data = [];
+  }
+
+  removeTask(id: number) {
+    this.data = this.data.filter(task => task.id !==id);
+    this.saveData;
   }
   
 }
