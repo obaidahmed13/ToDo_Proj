@@ -12,5 +12,13 @@ export class TodoComponent {
     localStorage.setItem('session', JSON.stringify(this.data))
   }
 
+  loadData() {
+    let data:any = localStorage.getItem('session');
+    this.session = JSON.parse(data);
+  }
+
+  dataClear() {
+    localStorage.clear();
+  }
   
 }
