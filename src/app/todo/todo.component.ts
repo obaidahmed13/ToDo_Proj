@@ -31,11 +31,12 @@ export class TodoComponent {
   dataClear() {
     localStorage.removeItem('session');
     this.data = [];
+    this.session=[];
   }
 
   removeTask(id: number) {
     this.data = this.data.filter(task => task.id !==id);
-    this.saveData;
+    this.saveData();
   }
   
 }

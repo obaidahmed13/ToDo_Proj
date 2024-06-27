@@ -13,10 +13,10 @@
         <div *ngIf="session" class="mt-3 border border-2 p-3 bg-light rounded">
             <ul>
                 <h2>All Tasks</h2>
-                <li *ngFor="let task of data" class="mt-3">
+                <li *ngFor="let task of session" class="mt-3">
                     <p>ID: {{ task.id }}</p>
                     <p>Task: {{ task.task }}</p>
-                    <button class="btn btn-danger text-white" (click)="removeTask(task.id)">Remove</button>
+                    <button class="btn btn-danger text-white" (click)="removeTask(task.id)">Delete</button>
                 </li>
             </ul>
         </div>
